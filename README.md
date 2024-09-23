@@ -1,4 +1,4 @@
-# VanisUI
+# Compatible VanisUI
 A Fork of Vanis UI Library that is more compatible!
 
 ## Example
