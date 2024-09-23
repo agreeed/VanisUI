@@ -6,7 +6,18 @@ local GetNCMethod = getnamecallmethod or get_namecall_method;
 local CheckCaller = checkcaller or check_caller;
 local GetRawMT = get_raw_metatable or getrawmetatable or getraw_metatable;
 
-assert(HookFunction  and GetNCMethod and CheckCaller and Connections, "Exploit is not supported");
+if not (HookFunction  and GetNCMethod and CheckCaller and Connections) then
+    warn("[VanisUI] Your executor does not support InstanceProtect, instances used by the library won't get protected!")
+    if not HookFunction then warn("[Details] HookFunction not supported!") end
+    if not GetNCMethod then warn("[Details] GetNamecallMethod not supported!") end
+    if not CheckCaller then warn("[Details] CheckCaller not supported!") end
+    if not Connections then warn("[Details] GetCOnnections not supported!") end
+
+    getgenv().ProtectInstance = function() end
+    getgenv().UnProtectInstance = function() end
+
+    return
+end
 
 local function HookMetaMethod(Object, MetaMethod, Function)
     return HookFunction(assert(GetRawMT(Object)[MetaMethod], "Invalid Method"), Function);
