@@ -4,8 +4,7 @@ end
 
 -- extra credits to twink marie
 local library = {}
-local request = request or http_request or (identifyexecutor() == "Synapse X" and syn.request) or (http and http.request)
-loadstring(request({Url="https://raw.githubusercontent.com/agreeed/VanisUI/main/InstanceProtect.lua",Method="GET"}).Body)()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/agreeed/VanisUI/main/InstanceProtect.lua"))()
 local UIS = game:GetService("UserInputService")
 local TS = game:GetService("TweenService")
 function library:CreateWindow(name, version, icon)
