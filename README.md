@@ -1,5 +1,5 @@
 # VanisUI
-Vanis UI Library because source was removed
+A Fork of Vanis UI Library that is more compatible!
 
 ## Example
 
